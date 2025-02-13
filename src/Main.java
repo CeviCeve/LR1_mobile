@@ -1,64 +1,39 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 class Main {
+    Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        double[] grades = {95, 87, 92};
-        neStydent student = new neStydent("Maxim Galitskiy", grades);
-        double average = student.calculateAverageGrade();
-        String letterGrade = student.getLetterGrade();
-        System.out.println("Average grade:" + average);
-        System.out.println("Letter grade:" + letterGrade);
     }
-    public static class neStydent {
 
-        @Override
-        public String toString() {
-            return "neStydent{" +
-                    "name='" + name + '\'' +
-                    ", grades=" + Arrays.toString(grades) +
-                    '}';
-        }
+    private void task_1(){
 
-        private String name;
-        private double[] grades;
-        private static final int NUM_GRADES = 3;
-        public neStydent(String name, double[] grades) {
-            this.name = name;
-            this.grades = grades;
-        }
-        public String getName() {
-            return name;
-        }
-        public void trueSetterName(String name) {
-            this.name = name;
-        }
-        public double[] trueGetterGrades() {
-            return grades;
-        }
-        public void setGrades(double[] grades) {
-            this.grades = grades;
-        }
-        public double calculateAverageGrade() {
-            double total = 0;
-            for (int i = 0; i < NUM_GRADES; i++) {
-                total += grades[i];
-            }
-            return total / NUM_GRADES;
-        }
-        public String getLetterGrade() {
-            double average = calculateAverageGrade();
+        System.out.print("Введите значение x: ");
+        double x = scanner.nextDouble();
 
-            if (average >= 90) {
-                return "A";
-            } else if (average >= 80) {
-                return" B";
-            } else if (average >= 70) {
-                return "C";
-            } else if (average >= 60) {
-                return "D";
-            } else {
-                return "F";
-            }
-        }
+        System.out.print("Введите значение y: ");
+        double y = scanner.nextDouble();
+
+        double pi = Math.PI;
+        double result = pi + Math.pow(3, x) - 4 * x + 3*(16 * y - 2 * Math.pow(y, 2) + 2 * Math.pow(x, 3) + pi);
+
+        System.out.println("Результат выражения: " + result);
+    }
+
+    private void task_2(){
+        System.out.print("Введите первое основание трапеции: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Введите второе основание трапеции: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Введите высоту трапеции: ");
+        double h = scanner.nextDouble();
+
+        double trapezoidArea = ((a + b) / 2) * h;
+        System.out.println("Площадь трапеции: " + trapezoidArea);
+
+        scanner.close();
     }
 }
